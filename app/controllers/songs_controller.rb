@@ -1,4 +1,4 @@
-class SongsController < ApplicationController
+ class SongsController < ApplicationController
   def index
     @songs = Song.all
   end
@@ -12,6 +12,7 @@ class SongsController < ApplicationController
   end
 
   def create
+   # raise params.inspect
     @song = Song.new(song_params)
 
     if @song.save
@@ -47,7 +48,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist_name)
+    params.require(:song).permit(:title, :artist_name,:album_cover)
   end
 end
 
